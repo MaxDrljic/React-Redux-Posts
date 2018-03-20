@@ -10,6 +10,13 @@ import { fetchPosts } from '../actions/postActions';
     this.props.fetchPosts();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.newPost) {
+      this.props.posts.unshift(nextProps.newPost);
+
+    }
+  }
+
   render() {
     const postItems = this.props.posts.map(post => (
       <div key={post.id}>
@@ -28,11 +35,13 @@ import { fetchPosts } from '../actions/postActions';
 
 Posts.propTypes = {
   fetchPosts: PropTypes.func.isRequired,
-  posts: PropTypes.array.isRequired
+  posts: PropTypes.array.isRequired,
+  newPost: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-  posts: state.posts.items
+  posts: state.posts.items,
+  newPost: state.posts.item
 });
 
 export default connect(mapStateToProps, { fetchPosts })(Posts);
