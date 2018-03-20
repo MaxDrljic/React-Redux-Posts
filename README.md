@@ -1,3 +1,7 @@
+# React Redux Posts
+
+Project created with React-Redux made with standard Redux structure to fetch posts from JSON placeholder and an option to add new post and display it.
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
